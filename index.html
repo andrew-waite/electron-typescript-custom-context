@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Hello World!</title>
+    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self' 'nonce-electron-script-load'"
+    />
+    <meta
+      http-equiv="X-Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'"
+    />
+    <script nonce="electron-script-load">if (typeof module === 'object') {window.module = module; module = undefined;}</script>
+    <script nonce="electron-script-load" src="./node_modules/jquery/dist/jquery.min.js"></script>
+    <script nonce="electron-script-load">try { $ = jQuery = module.exports; } catch(e) {}</script>
+    <script nonce="electron-script-load">if (window.module) module = window.module;</script>
+  </head>
+  <body>
+    <h1>Hello World!</h1>
+    We are using Node.js <span id="node-version"></span>, Chromium
+    <span id="chrome-version"></span>, and Electron
+    <span id="electron-version"></span>.
+
+    <!-- You can also require other files to run in this process -->
+    <script src="./dist/renderer.js"></script>
+
+    <ul>
+      <li id="somerandomid"><span>Some text in a list</span></li>  
+    </ul>
+
+  </body>
+</html>
