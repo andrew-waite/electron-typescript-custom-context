@@ -17,7 +17,14 @@ window.contextBridgeApi.receive('context-menu-command', (event, command) => {
     if (command == 'menu-item-1') {
         console.log(lastClickedElement);
         const text = $('#' + lastClickedElement + ' span').text();
-        const renameHtml = '<input type="text" id="name" value="' + text + '"required minlength="4" maxlength="8" size="10">';
+        const renameHtml = `<input type="text" id="input${lastClickedElement}" value="${text}" required minlength="1" maxlength="20" size="10">`;
         $('#' + lastClickedElement + ' span').replaceWith(renameHtml);
+    }
+});
+
+$(document).on('click', (event) => {
+    let inputElement = $('#input' + lastClickedElement);
+    if (!inputElement[0].contains(event.target)) {
+        inputElement.replaceWith(`<span>${inputElement.val()}</span>`);
     }
 });
