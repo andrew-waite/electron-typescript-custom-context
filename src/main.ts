@@ -16,8 +16,8 @@ function createWindow() {
   ipcMain.on('show-context-menu', (event) => {
     const template = [
       {
-        label: 'Menu Item 1',
-        click: () => { event.sender.send('context-menu-command', 'menu-item-1') }
+        label: 'Rename',
+        click: () => { event.sender.send('context-menu-command', 'rename') }
       },
       {
         label: 'Menu Item 2'
